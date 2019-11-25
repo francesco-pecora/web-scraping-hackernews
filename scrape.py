@@ -8,19 +8,19 @@ soup_object = BeautifulSoup(res.text, 'html.parser')
 
 # selecting title and vote html objects
 links = soup_object.select('.storylink')
-subtext = soup_object.select('.subtext')
+subtexts = soup_object.select('.subtext')
 
 def sort_by_votes(list):
     # sorting by votes in ascending order
     return sorted(list, key = lambda k: k['votes'], reverse = True)
 
-def create_custom_hackernews(links, subtext):
+def create_custom_hackernews(links, subtexts):
     new_list = []
     for idx, item in enumerate(links):
 
         title = item.getText()
         href = item.get('href', None) # default value of None if no href
-        vote = subtext[idx].select('.score')
+        vote = subtexts[idx].select('.score')
 
         # avoiding cases in which there are no votes
         if len(vote):
@@ -33,4 +33,4 @@ def create_custom_hackernews(links, subtext):
     return sort_by_votes(new_list)
 
 #print(create_custom_hackernews(links, votes)[0])
-pprint.pprint(create_custom_hackernews(links, subtext))
+pprint.pprint(create_custom_hackernews(links, subtexts))
