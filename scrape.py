@@ -1,6 +1,5 @@
 import requests                # allows us to gather html data
 from bs4 import BeautifulSoup  # allows us to process html data
-import pprint                  # nice output
 
 res = requests.get('https://news.ycombinator.com/news')
 
@@ -9,6 +8,13 @@ soup_object = BeautifulSoup(res.text, 'html.parser')
 # selecting title and vote html objects
 links = soup_object.select('.storylink')
 subtexts = soup_object.select('.subtext')
+
+def output_data(list):
+    for entry in list:
+        print(entry['title'])
+        print(entry['link'])
+        print(entry['votes'])
+        print()
 
 def sort_by_votes(list):
     # sorting by votes in ascending order
@@ -32,5 +38,4 @@ def create_custom_hackernews(links, subtexts):
     
     return sort_by_votes(new_list)
 
-#print(create_custom_hackernews(links, votes)[0])
-pprint.pprint(create_custom_hackernews(links, subtexts))
+output_data(create_custom_hackernews(links, subtexts))
