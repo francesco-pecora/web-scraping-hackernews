@@ -13,11 +13,16 @@ subtext = soup_object.select('.subtext')
 def create_custom_hackernews(links, subtext):
     new_list = []
     for idx, item in enumerate(links):
+
         title = item.getText()
         href = item.get('href', None) # default value of None if no href
         vote = subtext[idx].select('.score')
+
+        # avoiding cases in which there are no votes
         if len(vote):
             points = int(vote[0].getText().replace(' points', '')) # parsing to only get the numbers
+            
+            # only appending titles with score of 100+
             if points > 99:
                 new_list.append({'title': title, 'link': href, 'votes': points})
     
