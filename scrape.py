@@ -10,6 +10,10 @@ soup_object = BeautifulSoup(res.text, 'html.parser')
 links = soup_object.select('.storylink')
 subtext = soup_object.select('.subtext')
 
+def sort_by_votes(list):
+    # sorting by votes in ascending order
+    return sorted(list, key = lambda k: k['votes'], reverse = True)
+
 def create_custom_hackernews(links, subtext):
     new_list = []
     for idx, item in enumerate(links):
@@ -26,7 +30,7 @@ def create_custom_hackernews(links, subtext):
             if points > 99:
                 new_list.append({'title': title, 'link': href, 'votes': points})
     
-    return new_list
+    return sort_by_votes(new_list)
 
 #print(create_custom_hackernews(links, votes)[0])
 pprint.pprint(create_custom_hackernews(links, subtext))
