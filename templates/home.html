@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            ol {
+                counter-reset: my-awesome-counter;
+                list-style: none;
+                padding-left: 40px;
+            }
+            ol li {
+                margin: 0 0 0.5rem 0;
+                counter-increment: my-awesome-counter;
+                position: relative;
+            }
+            ol li::before {
+                content: counter(my-awesome-counter);
+                color: #fcd000;
+                font-size: 1.5rem;
+                font-weight: bold;
+                position: absolute;
+                --size: 32px;
+                left: calc(-1 * var(--size) - 10px);
+                line-height: var(--size);
+                width: var(--size);
+                height: var(--size);
+                top: 0;
+                transform: rotate(-10deg);
+                background: black;
+                border-radius: 50%;
+                text-align: center;
+                box-shadow: 1px 1px 0 #999;
+            }
+            body {
+                background: #191919;
+                line-height: 1.4;
+                margin: 2rem;
+            }    
+        </style>
+        <link href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet">
+    </head>
+
+    <body style="background-color: rgb(211, 211, 211);">
+        <div>
+            <h1 style="font-family: 'Monoton', cursive;">HackerNews Top 15</h1>
+            <ol style="font-family: 'Gentium Book Basic', serif; font-size: 1.5rem;"> {{ html|safe }} </ol>
+        </div>
+    </body>
+</html>
