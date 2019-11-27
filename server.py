@@ -42,7 +42,7 @@ def create_html_object(list):
     return li
 
 @app.route('/')
-def home_route(html = None):
+def home_route():
     return render_template('home.html', html = create_html_object(top_news))
 
 if __name__ == '__main__':
