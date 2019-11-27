@@ -37,8 +37,3 @@ def create_custom_hackernews(links, subtexts):
                 new_list.append({'title': title, 'link': href, 'votes': points})
     
     return sort_by_votes(new_list)
-
-
-
-if __name__ == '__main__':
-    output_data(create_custom_hackernews(links, subtexts))
