@@ -38,4 +38,7 @@ def create_custom_hackernews(links, subtexts):
     
     return sort_by_votes(new_list)
 
-output_data(create_custom_hackernews(links, subtexts))
+
+
+if __name__ == '__main__':
+    output_data(create_custom_hackernews(links, subtexts))
