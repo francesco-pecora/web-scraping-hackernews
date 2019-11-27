@@ -15,6 +15,3 @@ def create_html_object(list):
 def home_route(html = None):
     return render_template('home.html', html = create_html_object(top_news))
 
-# running the application
-if __name__ == '__main__':
-    app.run(debug=True)
