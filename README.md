@@ -4,10 +4,14 @@ Application that scrapes information from HackerNews and displays the current to
 
 Requirements.txt holds all the packages needed to run the application. 
 
-Run
+Run this command in the root file of the project to set up the packages:
 
 ```
 pip install -r requirements.txt
 ```
 
-to set up the packages.
+Once the packages are set, run this line to start the application in localhost (make sure 'python' refers to python version 3):
+
+```
+python .\server.py
+```
