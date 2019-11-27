@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup  # allows us to process html data
 from flask import Flask, render_template
 app = Flask(__name__)
 
-res = requests.get('https://news.ycombinator.com/news')
+res = requests.get('https://news.ycombinator.com')
 soup_object = BeautifulSoup(res.text, 'html.parser')
 
 # selecting title and vote html objects
