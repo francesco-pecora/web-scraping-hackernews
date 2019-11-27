@@ -4,6 +4,8 @@ Application that scrapes information from HackerNews and displays the current to
 
 Requirements.txt holds all the packages needed to run the application. 
 
-Run  
-$ >> pip install -r requirements.txt
+Run
+'''
+$pip install -r requirements.txt
+'''
 to set up the packages.
