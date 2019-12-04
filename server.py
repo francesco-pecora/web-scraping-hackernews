@@ -37,8 +37,8 @@ top_news = create_custom_hackernews(links, subtexts)
 def create_html_object(list):
     li = ''
     for item in list:
-        # building the html object. Every iteration new <li> added
-        li += "<li>" + "TITLE: " + item['title'] + "<br><a href=\"" + item['link'] + "\" target=\"_blank\">Link</a><br>Votes: " + str(item['votes']) + "<br><br></li>"
+        # building the html object. Every iteration new <li> added with bootstrap styling
+        li += "<li>" + "TITLE: " + item['title'] + "<br><a href=\"" + item['link'] + "\" class=\"btn btn-dark active\" role=\"button\" aria-pressed=\"true\" target=\"_blank\">Link</a><br>Votes: " + str(item['votes']) + "<br><br></li>"
     return li
 
 @app.route('/')
